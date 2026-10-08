@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Routes, Route, Link, useMatch, useNavigate } from 'react-router-dom';
+import { useEffect } from "react";
+import { Routes, Route, Link, useMatch, useNavigate } from "react-router-dom";
 import {
   Container,
   AppBar,
@@ -7,30 +7,22 @@ import {
   Toolbar,
   Typography,
   Button,
-} from '@mui/material';
-import { ErrorBoundary } from 'react-error-boundary';
-import {
-  useNotificationData,
-  useNotificationActions,
-} from './stores/NotificationStore';
-import { useBloglistData, useBloglistActions } from './stores/bloglistStore';
-import { useUserStoreData, useUserStoreActions } from './stores/userStore';
+} from "@mui/material";
+import { ErrorBoundary } from "react-error-boundary";
+import { useBloglistData, useBloglistActions } from "./stores/bloglistStore";
+import { useUserStoreData, useUserStoreActions } from "./stores/userStore";
 
-import BlogDetails from './components/BlogDetails';
-import CreateBlogForm from './components/CreateBlogForm';
-import FallbackComponent from './components/FallbackComponent';
-import Home from './components/Home';
-import Login from './components/Login';
-import Notification from './components/Notification';
-import Users from './components/Users';
-import UserDetails from './components/UserDetails';
-
-import blogService from './services/blogs';
+import BlogDetails from "./components/BlogDetails";
+import CreateBlogForm from "./components/CreateBlogForm";
+import FallbackComponent from "./components/FallbackComponent";
+import Home from "./components/Home";
+import Login from "./components/Login";
+import Notification from "./components/Notification";
+import Users from "./components/Users";
+import UserDetails from "./components/UserDetails";
 
 const App = () => {
   const navigate = useNavigate();
-  const { message, severity } = useNotificationData();
-  const { setNotificationMessage } = useNotificationActions();
   const { blogs } = useBloglistData();
   const { initialize } = useBloglistActions();
   const { user } = useUserStoreData();
@@ -39,14 +31,14 @@ const App = () => {
   useEffect(() => {
     initialize();
     checkUserPresent();
-  }, []);
+  });
 
-  const match = useMatch('/blog-details/:id');
+  const match = useMatch("/blog-details/:id");
   const blog = match ? blogs.find((blog) => blog.id === match.params.id) : null;
 
   const handleLogout = () => {
     logoutUser();
-    navigate('/');
+    navigate("/");
     window.location.reload();
   };
 
@@ -59,23 +51,23 @@ const App = () => {
               <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
                 Blog App
               </Typography>
-              <Button color="inherit" sx={{ fontSize: '16px' }}>
-                <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>
+              <Button color="inherit" sx={{ fontSize: "16px" }}>
+                <Link to="/" style={{ color: "white", textDecoration: "none" }}>
                   BLOGS
                 </Link>
               </Button>
-              <Button color="inherit" sx={{ fontSize: '16px' }}>
+              <Button color="inherit" sx={{ fontSize: "16px" }}>
                 <Link
                   to="/users"
-                  style={{ color: 'white', textDecoration: 'none' }}
+                  style={{ color: "white", textDecoration: "none" }}
                 >
                   USERS
                 </Link>
               </Button>
-              <Button color="inherit" sx={{ fontSize: '16px' }}>
+              <Button color="inherit" sx={{ fontSize: "16px" }}>
                 <Link
                   to="/create"
-                  style={{ color: 'white', textDecoration: 'none' }}
+                  style={{ color: "white", textDecoration: "none" }}
                 >
                   NEW BLOG
                 </Link>
@@ -84,15 +76,15 @@ const App = () => {
                 <Button
                   color="inherit"
                   onClick={() => handleLogout()}
-                  sx={{ fontSize: '16px' }}
+                  sx={{ fontSize: "16px" }}
                 >
                   LOGOUT
                 </Button>
               ) : (
-                <Button color="inherit" sx={{ fontSize: '16px' }}>
+                <Button color="inherit" sx={{ fontSize: "16px" }}>
                   <Link
                     to="/login"
-                    style={{ color: 'white', textDecoration: 'none' }}
+                    style={{ color: "white", textDecoration: "none" }}
                   >
                     LOGIN
                   </Link>

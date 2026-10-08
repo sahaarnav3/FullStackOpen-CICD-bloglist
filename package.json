@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
     "build": "npm run build --prefix client && cp -r client/dist server/dist",
-    "start": "NODE_ENV=production npm start --prefix server"
+    "start": "NODE_ENV=production npm start --prefix server",
+    "eslint": "npm run lint --prefix client && npm run lint --prefix server"
   },
   "keywords": [],
   "author": "sahaarnav3",

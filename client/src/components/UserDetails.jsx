@@ -16,7 +16,7 @@ export default function UserDetails() {
       setLoading(false)
     };
     fetchDetails();
-  }, []);
+  });
   return (
     <>
       {loading ? (
