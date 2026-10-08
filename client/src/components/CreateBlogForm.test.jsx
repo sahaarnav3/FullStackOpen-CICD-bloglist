@@ -27,10 +27,10 @@ test('form updates state and calls blogService.create with right details', async
     />
   );
 
-  const titleInput = screen.getByLabelText(/title:/i);
-  const authorInput = screen.getByLabelText(/author:/i);
-  const urlInput = screen.getByLabelText(/url:/i);
-  const createButton = screen.getByText('Create');
+  const titleInput = screen.getByLabelText(/title/i);
+  const authorInput = screen.getByLabelText(/author/i);
+  const urlInput = screen.getByLabelText(/url/i);
+  const createButton = screen.getByText('CREATE');
 
   await user.type(titleInput, 'Testing Form Title');
   await user.type(authorInput, 'Test Author');
