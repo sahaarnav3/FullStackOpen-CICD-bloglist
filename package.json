@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "npm install --prefix server --legacy-peer-deps && npm install --prefix client --legacy-peer-deps",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test --prefix client && npm run test --prefix server",
     "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
     "build": "npm run build --prefix client && cp -r client/dist server/dist",
     "start": "NODE_ENV=production npm start --prefix server",
