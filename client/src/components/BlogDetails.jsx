@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 
 import { useBloglistActions } from '../stores/bloglistStore';
-import { useNotificationActions } from '../stores/NotificationStore';
+import { useNotificationActions } from '../stores/notificationStore';
 import { useUserStoreData } from '../stores/userStore';
 import { useNavigate } from 'react-router-dom';
 import { useField } from '../hooks/index';
