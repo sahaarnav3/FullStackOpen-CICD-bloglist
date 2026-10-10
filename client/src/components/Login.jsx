@@ -22,7 +22,8 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      if (!loginUser({ username: username.value, password: password.value }))
+      const boolval = await loginUser({ username: username.value, password: password.value });
+      if (!boolval)
         throw new Error();
       resetUsername;
       resetPassword;

@@ -56,6 +56,7 @@ const BlogDetails = ({ blog }) => {
     blog && (
       <Card
         variant="outlined"
+        className='blog-details'
         sx={{
           maxWidth: '75%',
           borderRadius: '4px',
@@ -78,7 +79,7 @@ const BlogDetails = ({ blog }) => {
           </Typography>
 
           <Link
-            href="reactpatterns.com"
+            href={blog.url}
             underline="hover"
             target="_blank"
             rel="noopener"
@@ -161,7 +162,7 @@ const BlogDetails = ({ blog }) => {
             </Button>
           </div>
           <ul>
-            {blog.comments.map((comment) => (
+            {blog?.comments && blog.comments.map((comment) => (
               <li key={comment}>
                 <Typography variant="body1">{comment}</Typography>
               </li>

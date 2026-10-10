@@ -31,7 +31,8 @@ const App = () => {
   useEffect(() => {
     initialize();
     checkUserPresent();
-  });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const match = useMatch("/blog-details/:id");
   const blog = match ? blogs.find((blog) => blog.id === match.params.id) : null;
