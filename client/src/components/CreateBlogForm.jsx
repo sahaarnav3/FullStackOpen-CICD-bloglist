@@ -1,6 +1,6 @@
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { useNotificationActions } from '../stores/NotificationStore';
+import { useNotificationActions } from '../stores/notificationStore';
 import { useBloglistActions } from '../stores/bloglistStore';
 import { useUserStoreData } from '../stores/userStore';
 

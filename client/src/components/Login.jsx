@@ -1,9 +1,8 @@
 import { useNavigate, Navigate } from 'react-router-dom';
 
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { useNotificationActions } from '../stores/NotificationStore';
+import { useNotificationActions } from '../stores/notificationStore';
 import { useUserStoreData, useUserStoreActions } from '../stores/userStore';
 import { useField } from '../hooks';
 
