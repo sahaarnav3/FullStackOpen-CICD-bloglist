@@ -84,3 +84,5 @@ export const useBloglistData = () =>
 
 export const useBloglistActions = () =>
   useBloglistStore((state) => state.actions);
+
+export default useBloglistStore
