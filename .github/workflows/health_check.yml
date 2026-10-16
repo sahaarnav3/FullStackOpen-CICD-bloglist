@@ -1,0 +1,18 @@
+name: Periodic Health Check
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Runs every day at 12:00 UTC
+    - cron: "0 12 * * *"
+
+jobs:
+  periodic_ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check deployed application health
+        uses: jtalk/url-health-check-action@v4
+        with:
+          url: https://fullstackopen-cicd-bloglist.fly.dev/
+          max-attempts: 3
+          retry-delay: 5s
